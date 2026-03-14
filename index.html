@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 231 – Dynamic Web Fundamentals – Simone Leticia Cavallari Gois Plaine</title>
+    <meta name="description" content="WDD 231 – Dynamic Web Fundamentals. Simone's personal page. Resources, information, and final project.">
+    <meta name="author" content="Simone Leticia">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/base-large.css">
+    <script src="scripts/getdates.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+</head>
+<body>
+    <header>
+        <span id="course-title">WDD 231 – Dynamic Web Fundamentals</span>
+            <nav>
+            <a href="#">Home</a>
+            <a href="#">Chamber</a>
+            <a href="#">Final</a>
+        </nav>
+    </header>
+
+<main>
+    <h1>Home</h1>
+
+    <!-- Seção About Me -->
+    <section class="card about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>
+                Hello! My name is Simone Leticia, and I'm passionate about technology, design, and continuous learning. 
+                I have a degree in Electrical Engineering from the University of São Paulo in Brazil, and I'm currently 
+                studying Software Development and Web Design at BYU Idaho. I live in Joinville, Santa Catarina, Brazil, 
+                and I'm excited to continue learning more about web development and digital technologies.
+            </p>
+        </div>
+    </section>
+
+    <!-- Foto do Estudante -->
+    <section class="card student-photo">
+        <h2>Student Photo</h2>
+        <img src="images/minha-foto.webp" alt="Photo of Simone Leticia Plaine">
+    </section>
+
+    <!-- Seção Cursos -->
+    <section class="card courses">
+        <h2>Web Certificate Courses</h2>
+        <div class="filters">
+            <button data-filter="all">All</button>
+            <button data-filter="cse">CSE</button>
+            <button data-filter="wdd">WDD</button>
+        </div>
+        <ul id="course-list">
+            <li data-category="wdd">WDD 130</li>
+            <li data-category="cse">CSE 131</li>
+            <li data-category="wdd">WDD 231</li>
+        </ul>
+        <p id="total-credits">The total credits for courses listed above is 6</p>
+    </section>
+</main>
+
+    <footer>
+        <p>© <span id="currentyear"></span> Simone Leticia C. G. Plaine – Santa Catarina, Brazil</p>
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+@media (min-width: 768px) {
+
+  nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+
+  main h1 {
+    grid-column: 1 / -1;
+  }
+
+  /* About Me ocupa a esquerda */
+  .about {
+    grid-column: 1;
+  }
+
+  /* Foto ocupa a direita */
+  .student-photo {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* Cursos ocupa largura total */
+  .courses {
+    grid-column: 1 / -1;
+  }
+}
