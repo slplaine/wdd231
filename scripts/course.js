@@ -32,4 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Define o botão "All" como ativo ao carregar
     document.querySelector('[data-filter="all"]').classList.add("active");
 });
+// Botão Hambúrguer para navegação móvel
+const button = document.querySelector("#menu-button");
+const nav = document.querySelector("#main-nav");
+
+button.addEventListener("click", () => {
+    nav.classList.toggle("show");
+});
 

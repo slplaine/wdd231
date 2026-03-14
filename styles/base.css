@@ -173,7 +173,21 @@ text-decoration:underline;
     background: var(--primary-color);
     color: var(--secondary-color);
 }
+#menu-button {
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
+#main-nav {
+    display: none;
+    flex-direction: column;
+}
+
+#main-nav.show {
+    display: flex;
+}
 footer{
 text-align:center;
 background:var(--primary-color);
