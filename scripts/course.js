@@ -38,5 +38,11 @@ const nav = document.querySelector("#main-nav");
 
 button.addEventListener("click", () => {
     nav.classList.toggle("show");
+
+    if (nav.classList.contains("show")) {
+        button.textContent = "✖";
+    } else {
+        button.textContent = "☰";
+    }
 });
 
