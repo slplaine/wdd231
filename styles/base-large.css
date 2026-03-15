@@ -32,13 +32,13 @@
     grid-column: 1 / -1;
   }
 
-#menu-button {
+  #menu-button {
     display: none;
-}
+  }
 
-#main-nav {
+  #main-nav {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-}
+  }
 }
