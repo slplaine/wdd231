@@ -30,7 +30,7 @@ header {
 
 #title {
   font-family: var(--heading-font);
-  font-size: 1.4 rem;
+  font-size: 2rem;
   font-weight: bold;
   display: block;
   margin-bottom: .5rem;
