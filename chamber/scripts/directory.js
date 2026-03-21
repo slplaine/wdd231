@@ -1,7 +1,7 @@
 // Load members from JSON file
 async function loadMembers() {
   try {
-    const response = await fetch('members.json');
+    const response = await fetch('data/members.json');
     if (!response.ok) {
       throw new Error("Error loading members.json");
     }
