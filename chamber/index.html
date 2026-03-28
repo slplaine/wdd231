@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/base-large.css">
     <script src="scripts/getdates.js" defer></script>
     <script src="scripts/weather.js" defer></script>
+    <script src="scripts/index.js" defer></script>
     <link rel="icon" href="favicon.ico">
     
     <meta property="og:title" content="Chamber Directory - WDD231 BYU Pathway">
@@ -34,7 +35,7 @@
     </header>
 
 <main>
-  <h1>Chamber Home Page - WDD231 BYU Pathway</h1>
+  <h1> Joinville Chamber Home Page </h1>
   <section class="hero">
     <img src="images/portico-de-joinville.webp" alt="Joinville" class="hero-img">
     
@@ -43,8 +44,8 @@
         <p>Connecting businesses and growing our community</p>
         <a href="directory.html" class="btn">Join Us</a>
     </div>
-  </section>
-  <section class="weather">
+  
+    <section class="weather">
     <h2>Weather</h2>
 
     <p><strong>Current Temp:</strong> <span id="temp"></span>°C</p>
@@ -52,8 +53,13 @@
 
     <h3>3-Day Forecast</h3>
     <ul id="forecast"></ul>
+    </section>
+  </section>    
+  <section class="spotlights">
+    <h2>Company Spotlights</h2>
+    <div id="spotlight-container"></div>
   </section>
-
+  
 </main>
 
 <footer>

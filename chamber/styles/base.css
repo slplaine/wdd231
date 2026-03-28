@@ -112,6 +112,7 @@ main h1{
   width: 100%;
   height: 70vh;
   overflow: hidden;
+  position: relative;
 }
 
 .hero-img {
@@ -129,9 +130,51 @@ main h1{
   color: white;
   text-align: center;
     
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color:#00000080;
   padding: 20px;
   border-radius: 10px;
+}
+.weather {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background-color: #FFFFFFE6;
+  color: #333;
+
+  padding: 15px;
+  border-radius: 10px;
+
+  width: 200px;
+
+  box-shadow: 0 4px 10px #00000033;
+
+  font-size: 0.9rem;
+}
+.spotlights {
+  padding: 20px;
+  text-align: center;
+}
+
+#spotlight-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.spotlight-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 4px 10px #00000033;
+}
+
+.spotlight-card img {
+  width: 100px;
+  height: auto;
+  margin: 10px 0;
 }
 footer {
   text-align: center;
