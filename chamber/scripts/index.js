@@ -8,7 +8,7 @@ async function loadSpotlights() {
 
     const shuffled = [...filtered].sort(() => Math.random() - 0.5);
 
-    const selected = shuffled.slice(0, Math.floor(Math.random() * 2) + 2);
+    const selected = shuffled.slice(0, 3);
 
     displaySpotlights(selected);
 }
