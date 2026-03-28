@@ -23,4 +23,11 @@
     flex-direction: row;
     gap: 1rem;
   }
+  .hero {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
 }
