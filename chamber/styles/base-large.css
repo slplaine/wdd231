@@ -26,11 +26,13 @@
   .hero {
     position: relative;
     height: 60vh;
+    overflow: hidden;
   }
 
   .hero-img {
     height: 100%;
     object-fit: cover;
+    display:block;
   }
 
   .hero-content {
@@ -39,6 +41,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     margin-top: 0;
+    z-index: 2;
   }
 
   .weather {
@@ -46,10 +49,15 @@
     top: 20px;
     right: 20px;
     width: 200px;
+    z-index: 2;
   }
  
 
   .hero-content h1 {
     font-size: 1.5rem;
+  }
+  .spotlights {
+    position: relative;
+    z-index: 1;
   }
 }
