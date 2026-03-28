@@ -108,48 +108,31 @@ main h1{
   display: flex;
 }
 .hero {
-  position: relative;
   width: 100%;
-  height: 70vh;
-  overflow: hidden;
-  position: relative;
 }
 
 .hero-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* MUITO IMPORTANTE (não distorce) */
+  height: auto;
 }
 
 .hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-    
-  color:var(--secondary-color);
+  color: var(--secondary-color);
   text-align: center;
-    
-  background-color:#00000080;
-  padding: 20px;
+
+  background-color: #00000080;
+  padding: 15px;
+  margin-top: -80px; /* sobrepõe levemente a imagem */
   border-radius: 10px;
 }
+
 .weather {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-
   background-color: #FFFFFFE6;
-  color: #333;
-
   padding: 15px;
   border-radius: 10px;
-
-  width: 200px;
-
+  margin: 15px auto;
+  width: 90%;
   box-shadow: 0 4px 10px #00000033;
-
-  font-size: 0.9rem;
 }
 .spotlights {
   padding: 20px;
