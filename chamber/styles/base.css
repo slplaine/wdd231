@@ -159,6 +159,7 @@ main h1{
   height: auto;
   margin: 10px 0;
 }
+
 footer {
   text-align: center;
   background: var(--primary-color);
