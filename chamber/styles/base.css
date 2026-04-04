@@ -228,7 +228,7 @@ label {
 }
 
 .modal-content {
-  background: white;
+  background: #ffffff;
   margin: 20% auto;
   padding: 1rem;
   width: 90%;
@@ -250,6 +250,19 @@ label {
 
 #results p {
   margin: 0.5rem 0;
+}
+.form-section {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.form-section input,
+.form-section select,
+.form-section textarea {
+  background: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
 }
 footer {
   text-align: center;
