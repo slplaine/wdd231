@@ -15,3 +15,17 @@ document.getElementById("results").innerHTML = `
   <p><strong>Business:</strong> ${params.get("business")}</p>
   <p><strong>Date:</strong> ${params.get("timestamp")}</p>
 `;
+
+// Hamburger menu for mobile navigation
+const button = document.querySelector("#menu-button");
+const nav = document.querySelector("#main-nav");
+
+button.addEventListener("click", () => { 
+  nav.classList.toggle("show");
+
+  if (nav.classList.contains("show")) {
+    button.textContent = "✖";
+  } else {
+    button.textContent = "☰";
+  }
+});
