@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Chamber Directory</title>
-    <meta name="description" content="WDD 231 – Web Frontend Development I. Simone's chamber directory page.">
+    <title> Chamber Home Page </title>
+    <meta name="description" content="WDD 231 – Web Frontend Development I. Simone's chamber home page.">
     <meta name="author" content="Simone Leticia">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/base-large.css">
     <script src="scripts/getdates.js" defer></script>
-    <script src="scripts/directory.js" defer></script>
+    <script src="scripts/weather.js" defer></script>
+    <script src="scripts/join.js" defer></script>
     <link rel="icon" href="favicon.ico">
     
     <meta property="og:title" content="Chamber Directory - WDD231 BYU Pathway">
@@ -23,25 +24,30 @@
 </head>
 <body>
     <header>
-        <span id="title">JoinvilleChamber</span>
+        <span id="title">Joinville Chamber</span>
         <button id="menu-button">☰</button>
         <nav id="main-nav">
             <a href="index.html">Home</a>
             <a href="directory.html">Chamber Project</a>
-            <a href="join.html">Join</a>
-            <a href="#">Final Project</a>
+            <a href="join.html">Final Project</a>
+            <a href="#">About Me</a>
         </nav>
     </header>
 
-<main>
-  <h1>Chamber Directory - WDD231 BYU Pathway</h1>
-  <section class="view-options">
-    <button id="grid">Grid View</button>
-    <button id="list">List View</button>
-  </section>
 
-  <section id="members" class="grid"></section>
+<main class="thankyou-container">
 
+    <section class="thankyou-message">
+      <h1>Thank You for Joining!</h1>
+      <p>Your application has been received successfully.</p>
+    </section>
+
+    <section class="submitted-data">
+      <h2>Your Submitted Information</h2>
+
+      <div id="results"></div>
+
+    </section> 
 </main>
 
 <footer>

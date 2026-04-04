@@ -159,7 +159,98 @@ main h1{
   height: auto;
   margin: 10px 0;
 }
+/* layout geral */
+.join-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
 
+/* form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+/* cards */
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* card */
+.card {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  /* animação inicial */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s forwards;
+}
+
+/* delay progressivo */
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+.card:nth-child(4) { animation-delay: 0.6s; }
+
+/* animação */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000099;
+}
+
+.modal:target {
+  display: block;
+}
+
+.modal-content {
+  background: white;
+  margin: 20% auto;
+  padding: 1rem;
+  width: 90%;
+  max-width: 300px;
+}
+
+.thankyou-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.submitted-data {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+#results p {
+  margin: 0.5rem 0;
+}
 footer {
   text-align: center;
   background: var(--primary-color);
