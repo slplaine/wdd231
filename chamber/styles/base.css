@@ -120,7 +120,7 @@ main h1{
   color: var(--secondary-color);
   text-align: center;
 
-  background-color: #00000080;
+  background-color: #00000000;
   padding: 15px;
   margin-top: -80px; /* sobrepõe levemente a imagem */
   border-radius: 10px;
