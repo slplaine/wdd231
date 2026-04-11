@@ -7,12 +7,8 @@
 
   --heading-font: "Playfair Display", serif;
   --body-font: "Roboto", sans-serif;
-
-  --border-color: #999;
-  --shadow: 0 4px 10px #00000033;
 }
 
-/* Reset / Base */
 * {
   margin: 0;
   padding: 0;
@@ -25,13 +21,6 @@ body {
   color: var(--text-color);
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Header */
 header {
   background: var(--primary-color);
   color: var(--secondary-color);
@@ -47,7 +36,6 @@ header {
   margin-bottom: .5rem;
 }
 
-/* Navigation */
 nav {
   display: flex;
   flex-direction: column;
@@ -62,6 +50,45 @@ nav a {
 
 nav a:hover {
   background: var(--hover-color);
+  border-radius: 5px;
+}
+
+main {
+  padding: 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+main h1{
+    text-align:center;
+    margin-bottom:1rem;
+    font-family:var(--heading-font);
+    font-size: 1.5rem;
+}
+
+#members {
+  gap: 1rem;
+}
+
+#members.grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: one column */
+}
+
+#members.list {
+  display: block;
+}
+
+.member-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background:var(--secondary-color);
+}
+
+.member-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.5rem;
   border-radius: 5px;
 }
 
@@ -80,85 +107,33 @@ nav a:hover {
 #main-nav.show {
   display: flex;
 }
-
-/* Layout */
-main {
-  padding: 1rem;
-  max-width: 1000px;
-  margin: auto;
-}
-
-main h1 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-family: var(--heading-font);
-  font-size: 1.5rem;
-}
-
-/* Hero */
 .hero {
   width: 100%;
 }
 
 .hero-img {
   width: 100%;
+  height: auto;
 }
 
 .hero-content {
   color: var(--secondary-color);
   text-align: center;
+
   background-color: #00000000;
   padding: 15px;
-  margin-top: -80px;
+  margin-top: -80px; /* sobrepõe levemente a imagem */
   border-radius: 10px;
 }
 
-/* Cards (Unified Style) */
-.card,
-.member-card,
-.spotlight-card {
-  background: var(--secondary-color);
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border-color);
-}
-
-.card img,
-.member-card img,
-.spotlight-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-}
-
-/* Members */
-#members {
-  gap: 1rem;
-}
-
-#members.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-#members.list {
-  display: block;
-}
-
-/* Weather */
 .weather {
   background-color: #FFFFFFE6;
   padding: 15px;
   border-radius: 10px;
   margin: 15px auto;
   width: 90%;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 10px #00000033;
 }
-
-/* Spotlight */
 .spotlights {
   padding: 20px;
   text-align: center;
@@ -172,16 +147,19 @@ main h1 {
 }
 
 .spotlight-card {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  padding: 15px;
   width: 250px;
+  box-shadow: 0 4px 10px #00000033;
 }
 
 .spotlight-card img {
   width: 100px;
   height: auto;
-  margin: 10px auto;
+  margin: 10px 0;
 }
-
-/* Forms */
+/* layout geral */
 .join-container {
   display: flex;
   flex-direction: column;
@@ -189,6 +167,7 @@ main h1 {
   padding: 1rem;
 }
 
+/* form */
 form {
   display: flex;
   flex-direction: column;
@@ -201,38 +180,31 @@ label {
   font-size: 0.9rem;
 }
 
-.form-section {
-  background: var(--secondary-color);
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-.form-section input,
-.form-section select,
-.form-section textarea {
-  background: #fff;
-  color: #000;
-  border: 1px solid var(--border-color);
-  padding: 0.5rem;
-}
-
-/* Animated Cards */
+/* cards */
 .cards-section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
+/* card */
 .card {
+  padding: 1rem;
+  border: 1px solid #999;
+  border-radius: 8px;
+
+  /* animação inicial */
   opacity: 0;
   transform: translateY(20px);
   animation: fadeIn 0.8s forwards;
 }
 
+/* delay progressivo */
 .cards-section .card:nth-child(2) { animation-delay: 0.2s; }
 .cards-section .card:nth-child(3) { animation-delay: 0.4s; }
 .cards-section .card:nth-child(4) { animation-delay: 0.6s; }
 
+/* animação */
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -240,38 +212,29 @@ label {
   }
 }
 
-/* Modals */
-.modal,
-.discover-modal {
+/* modal */
+.modal {
   display: none;
   position: fixed;
-  inset: 0;
-  background: var(--background-color);
-  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000000;
 }
 
-.modal:target,
-.discover-modal.show {
+.modal:target {
   display: block;
 }
 
-.modal-content,
-.discover-modal .modal-content {
-  background: var(--secondary-color);
-  margin: 10% auto;
-  padding: 2rem;
-  border-radius: 8px;
+.modal-content {
+  background: #ffffff;
+  margin: 20% auto;
+  padding: 1rem;
   width: 90%;
-  max-width: 600px;
+  max-width: 300px;
 }
 
-#close-modal {
-  float: right;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Thank you */
 .thankyou-container {
   padding: 1rem;
   display: flex;
@@ -280,7 +243,7 @@ label {
 }
 
 .submitted-data {
-  background: var(--background-color);
+  background: #f5f5f5;
   padding: 1rem;
   border-radius: 8px;
 }
@@ -288,8 +251,19 @@ label {
 #results p {
   margin: 0.5rem 0;
 }
-
-/* Discover grid */
+.form-section {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.form-section input,
+.form-section select,
+.form-section textarea {
+  background: #fff;
+  color: #000;
+  border: 1px solid #999;
+  padding: 0.5rem;
+}
 .discover-grid {
   display: grid;
   gap: 1rem;
@@ -312,8 +286,48 @@ label {
 .card:nth-child(6) { grid-area: card6; }
 .card:nth-child(7) { grid-area: card7; }
 .card:nth-child(8) { grid-area: card8; }
+.card figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-/* Footer */
+.card img {
+  width: 100%;
+  height: 200px;       /* altura fixa */
+  object-fit: cover;   /* corta e ajusta proporcionalmente */
+  border-radius: 8px;  /* opcional: cantos arredondados */
+}
+
+.discover-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color:var(--background-color);
+}
+
+.discover-modal .modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+
+
+#close-modal {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
 footer {
   text-align: center;
   background: var(--primary-color);
