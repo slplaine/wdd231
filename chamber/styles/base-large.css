@@ -72,3 +72,34 @@
     top: 1rem;
   }
 }
+/* MÉDIAS TELAS (641px a 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .discover-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8";
+  }
+}
+
+/* GRANDES TELAS (1025px+) */
+@media (min-width: 1025px) {
+  .discover-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-areas:
+      "card1 card2 card3"
+      "card4 card5 card6"
+      "card7 card8 .";
+  }
+
+  /* efeito hover exclusivo para desktop */
+  .card img:hover {
+    filter: brightness(0.85);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+}
