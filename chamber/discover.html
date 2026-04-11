@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/base-large.css">
     <script src="scripts/getdates.js" defer></script>
-    <script src="scripts/directory.js" defer></script>
+    <script type="module" src="scripts/discover.js"></script>
     <link rel="icon" href="favicon.ico">
     
     <meta property="og:title" content="Chamber Directory - WDD231 BYU Pathway">
@@ -34,14 +34,9 @@
     </header>
 
 <main>
-  <h1>Chamber Directory - WDD231 BYU Pathway</h1>
-  <section class="view-options">
-    <button id="grid">Grid View</button>
-    <button id="list">List View</button>
-  </section>
-
-  <section id="members" class="grid"></section>
-
+  <h1>Discover Joinville</h1>
+  <section id="visitor-message"></section>
+  <section id="discover-cards" class="discover-grid"></section>
 </main>
 
 <footer>
