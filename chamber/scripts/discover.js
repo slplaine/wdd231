@@ -1,6 +1,5 @@
 import { places } from "../data/discover.mjs";
 
-// Função para construir os cards
 const container = document.querySelector("#discover-cards");
 
 places.forEach(place => {
@@ -9,33 +8,42 @@ places.forEach(place => {
   card.innerHTML = `
     <h2>${place.name}</h2>
     <figure>
-      <img src="data/images/${place.image}" alt="${place.name}" loading="lazy">
+      <img src="./images/${place.image}" alt="${place.name}" loading="lazy">
     </figure>
     <address>${place.address}</address>
     <p>Telefone: ${place.phone}</p>
     <p><a href="${place.website}" target="_blank">Visite o site</a></p>
-    <button>Learn More</button>
+    <button class="learn-more">Learn More</button>
   `;
   container.appendChild(card);
+
+  // evento do botão
+  card.querySelector(".learn-more").addEventListener("click", () => {
+    const modalBody = document.querySelector("#modal-body");
+    modalBody.innerHTML = `
+      <h2>${place.name}</h2>
+      <p><strong>Endereço:</strong> ${place.address}</p>
+      <p><strong>Telefone:</strong> ${place.phone}</p>
+      <p><strong>Website:</strong> <a href="${place.website}" target="_blank">${place.website}</a></p>
+      <img src="./images/${place.image}" alt="${place.name}" style="width:100%;height:250px;object-fit:cover;">
+    `;
+    document.querySelector("#modal").style.display = "block";
+  });
 });
 
-// LocalStorage: mensagem de visita
-const messageArea = document.querySelector("#visitor-message");
-const lastVisit = localStorage.getItem("lastVisit");
-const now = Date.now();
-
-if (!lastVisit) {
-  messageArea.textContent = "Welcome! Let us know if you have any questions.";
-} else {
-  const days = Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24));
-  if (days < 1) {
-    messageArea.textContent = "Back so soon! Awesome!";
-  } else if (days === 1) {
-    messageArea.textContent = "You last visited 1 day ago.";
-  } else {
-    messageArea.textContent = `You last visited ${days} days ago.`;
-  }
+// fechar modal (com verificação)
+const closeBtn = document.querySelector("#close-modal");
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    document.querySelector("#modal").style.display = "none";
+  });
 }
 
-localStorage.setItem("lastVisit", now);
+// fechar clicando fora
+window.addEventListener("click", (event) => {
+  const modal = document.querySelector("#modal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
