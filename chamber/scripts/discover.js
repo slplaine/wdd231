@@ -7,12 +7,13 @@ places.forEach(place => {
   const card = document.createElement("div");
   card.classList.add("card");
   card.innerHTML = `
-    <h2>${place.title}</h2>
+    <h2>${place.name}</h2>
     <figure>
-      <img src="${place.image}" alt="${place.title}">
+      <img src="data/images/${place.image}" alt="${place.name}" loading="lazy">
     </figure>
     <address>${place.address}</address>
-    <p>${place.description}</p>
+    <p>Telefone: ${place.phone}</p>
+    <p><a href="${place.website}" target="_blank">Visite o site</a></p>
     <button>Learn More</button>
   `;
   container.appendChild(card);
@@ -37,3 +38,4 @@ if (!lastVisit) {
 }
 
 localStorage.setItem("lastVisit", now);
+
