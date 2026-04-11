@@ -46,4 +46,19 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
+// Hamburger menu for mobile navigation
+const button = document.querySelector("#menu-button");
+const nav = document.querySelector("#main-nav");
+
+button.addEventListener("click", () => { 
+  nav.classList.toggle("show");
+
+  if (nav.classList.contains("show")) {
+    button.textContent = "✖";
+    button.setAttribute("aria-label", "Fechar menu");
+  } else {
+    button.textContent = "☰";
+    button.setAttribute("aria-label", "Abrir menu");
+  }
+});
 

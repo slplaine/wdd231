@@ -72,6 +72,7 @@
     top: 1rem;
   }
 }
+
 /* MÉDIAS TELAS (641px a 1024px) */
 @media (min-width: 641px) and (max-width: 1024px) {
   .discover-grid {
