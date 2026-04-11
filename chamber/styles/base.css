@@ -308,7 +308,7 @@ label {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #00000099;
+  background-color:var(--background-color);
 }
 
 .discover-modal .modal-content {
