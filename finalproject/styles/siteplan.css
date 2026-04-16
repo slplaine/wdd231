@@ -175,6 +175,18 @@ footer {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
+footer a {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+footer a:visited {
+  color: var(--color-white);
+}
+
+footer a:hover {
+  color: var(--hover-color);
+}
 /* ===== Modal ===== */
 .modal {
   display: none;
