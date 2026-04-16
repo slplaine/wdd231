@@ -52,6 +52,14 @@
   .hamburger {
     display: none;
   }
+  /* ===== Cards Layout (DESKTOP) ===== */
+  .cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 por linha */
+  }
 }
 
-
+@media (min-width: 481px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

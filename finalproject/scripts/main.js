@@ -15,6 +15,7 @@ const lastModified = document.getElementById("lastModified");
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
+
 if (lastModified) {
   lastModified.textContent = `Last Modified: ${document.lastModified}`;
 }
@@ -32,10 +33,11 @@ function renderBenefits() {
     list.innerHTML = benefits.map(item => `<li>${item}</li>`).join("");
   }
 }
+
 renderBenefits();
 
-// ====== Form Interaction (LocalStorage apenas, SEM bloquear envio) ======
-const nameForm = document.querySelector("form"); // pega qualquer form da página
+// ====== Form Interaction (LocalStorage sem bloquear envio) ======
+const nameForm = document.getElementById("nameForm");
 const welcomeMessage = document.getElementById("welcomeMessage");
 
 // Mensagem ao voltar
@@ -44,7 +46,7 @@ if (localStorage.getItem("visitorName") && welcomeMessage) {
 }
 
 if (nameForm) {
-  nameForm.addEventListener("submit", function() {
+  nameForm.addEventListener("submit", function () {
 
     const nameInput = document.getElementById("visitorName")?.value;
     const emailInput = document.getElementById("visitorEmail")?.value;
@@ -56,21 +58,23 @@ if (nameForm) {
       message: messageInput
     };
 
-    // Salva no localStorage
     if (visitor.name) {
       localStorage.setItem("visitorName", visitor.name);
     }
 
     console.log("Visitor object:", visitor);
-
-    // NÃO usamos preventDefault → formulário será enviado normalmente
   });
 }
 
-// ===== FETCH + DYNAMIC CONTENT =====
+// ===== FETCH + DYNAMIC CONTENT (SÓ NA HOME) =====
 async function loadProjects() {
   try {
     const response = await fetch("data/data.json");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
     const data = await response.json();
 
     const container = document.createElement("section");
@@ -100,27 +104,30 @@ async function loadProjects() {
   }
 }
 
-loadProjects();
+// 👉 IMPORTANTE: só roda no index.html
+if (document.body.classList.contains("home")) {
+  loadProjects();
+}
 
-// ===== MODAL =====
-document.addEventListener("click", (e) => {
-  const card = e.target.closest(".card");
-  const modal = document.getElementById("modal");
-  const modalText = document.getElementById("modalText");
-
-  if (card && modal && modalText) {
-    modalText.textContent = card.querySelector("h3").textContent;
-    modal.style.display = "block";
-  }
-});
-
+// ===== MODAL (seguro) =====
+const modal = document.getElementById("modal");
+const modalText = document.getElementById("modalText");
 const closeModal = document.getElementById("closeModal");
 
-if (closeModal) {
-  closeModal.addEventListener("click", () => {
-    const modal = document.getElementById("modal");
-    if (modal) {
-      modal.style.display = "none";
+if (modal && modalText) {
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".card");
+
+    if (card) {
+      const title = card.querySelector("h3")?.textContent;
+      modalText.textContent = title || "Project details";
+      modal.style.display = "block";
     }
+  });
+}
+
+if (closeModal && modal) {
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
   });
 }
