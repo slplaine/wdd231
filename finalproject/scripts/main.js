@@ -20,7 +20,7 @@ if (lastModified) {
   lastModified.textContent = `Last Modified: ${document.lastModified}`;
 }
 
-// ====== Dynamic Benefits (Arrays + map) ======
+// ====== Dynamic Benefits ======
 const benefits = [
   "Helps reduce stress",
   "Improves focus and patience",
@@ -36,11 +36,10 @@ function renderBenefits() {
 
 renderBenefits();
 
-// ====== Form Interaction (LocalStorage sem bloquear envio) ======
+// ====== Form Interaction ======
 const nameForm = document.getElementById("nameForm");
 const welcomeMessage = document.getElementById("welcomeMessage");
 
-// Mensagem ao voltar
 if (localStorage.getItem("visitorName") && welcomeMessage) {
   welcomeMessage.textContent = `Welcome back, ${localStorage.getItem("visitorName")}!`;
 }
@@ -66,7 +65,7 @@ if (nameForm) {
   });
 }
 
-// ===== FETCH + DYNAMIC CONTENT (SÓ NA HOME) =====
+// ===== FETCH + DYNAMIC CONTENT =====
 async function loadProjects() {
   try {
     const response = await fetch("data/data.json");
@@ -83,8 +82,9 @@ async function loadProjects() {
     const cards = document.createElement("div");
     cards.classList.add("cards");
 
+    // 🔥 SEM IMAGEM NO CARD (apenas data-image)
     cards.innerHTML = data.map(item => `
-      <div class="card">
+      <div class="card" data-image="${item.image}">
         <h3>${item.name}</h3>
         <p><strong>Difficulty:</strong> ${item.difficulty}</p>
         <p><strong>Time:</strong> ${item.time}</p>
@@ -104,24 +104,30 @@ async function loadProjects() {
   }
 }
 
-// 👉 IMPORTANTE: só roda no index.html
+// 👉 só roda no index
 if (document.body.classList.contains("home")) {
   loadProjects();
 }
 
-// ===== MODAL (seguro) =====
+// ===== MODAL =====
 const modal = document.getElementById("modal");
-const modalText = document.getElementById("modalText");
+const modalTitle = document.getElementById("modalTitle");
+const modalImage = document.getElementById("modalImage");
 const closeModal = document.getElementById("closeModal");
 
-if (modal && modalText) {
+if (modal && modalTitle && modalImage) {
   document.addEventListener("click", (e) => {
     const card = e.target.closest(".card");
 
     if (card) {
       const title = card.querySelector("h3")?.textContent;
-      modalText.textContent = title || "Project details";
-      modal.style.display = "block";
+      const image = card.getAttribute("data-image");
+
+      modalTitle.textContent = title || "Project";
+      modalImage.src = image;
+      modalImage.alt = title;
+
+      modal.style.display = "flex";
     }
   });
 }
