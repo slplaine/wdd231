@@ -1,7 +1,8 @@
-// ====== Menu Hambúrguer ======
+// ====== Hamburger Menu ======
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.page-links');
 
+// Toggle navigation menu on small screens
 if (hamburger && navMenu) {
   hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
@@ -12,10 +13,12 @@ if (hamburger && navMenu) {
 const yearSpan = document.getElementById("currentyear");
 const lastModified = document.getElementById("lastModified");
 
+// Display current year
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
+// Display last modified date
 if (lastModified) {
   lastModified.textContent = `Last Modified: ${document.lastModified}`;
 }
@@ -40,12 +43,15 @@ renderBenefits();
 const nameForm = document.getElementById("nameForm");
 const welcomeMessage = document.getElementById("welcomeMessage");
 
+// Retrieve saved visitor name from localStorage
 if (localStorage.getItem("visitorName") && welcomeMessage) {
   welcomeMessage.textContent = `Welcome back, ${localStorage.getItem("visitorName")}!`;
 }
 
+// Handle form submission
 if (nameForm) {
   nameForm.addEventListener("submit", function () {
+    // ⚠️ REMOVIDO e.preventDefault() para permitir envio normal
 
     const nameInput = document.getElementById("visitorName")?.value;
     const emailInput = document.getElementById("visitorEmail")?.value;
@@ -82,7 +88,6 @@ async function loadProjects() {
     const cards = document.createElement("div");
     cards.classList.add("cards");
 
-    // 🔥 SEM IMAGEM NO CARD (apenas data-image)
     cards.innerHTML = data.map(item => `
       <div class="card" data-image="${item.image}">
         <h3>${item.name}</h3>
@@ -104,7 +109,6 @@ async function loadProjects() {
   }
 }
 
-// 👉 só roda no index
 if (document.body.classList.contains("home")) {
   loadProjects();
 }
@@ -115,6 +119,12 @@ const modalTitle = document.getElementById("modalTitle");
 const modalImage = document.getElementById("modalImage");
 const closeModal = document.getElementById("closeModal");
 
+// Garantir que inicia fechada
+if (modal) {
+  modal.style.display = "none";
+}
+
+// Open modal when clicking on a card
 if (modal && modalTitle && modalImage) {
   document.addEventListener("click", (e) => {
     const card = e.target.closest(".card");
@@ -124,7 +134,11 @@ if (modal && modalTitle && modalImage) {
       const image = card.getAttribute("data-image");
 
       modalTitle.textContent = title || "Project";
-      modalImage.src = image;
+
+      if (image) {
+        modalImage.src = image;
+      }
+
       modalImage.alt = title;
 
       modal.style.display = "flex";
@@ -132,8 +146,28 @@ if (modal && modalTitle && modalImage) {
   });
 }
 
+// Close modal using close button
 if (closeModal && modal) {
   closeModal.addEventListener("click", () => {
     modal.style.display = "none";
+    modalImage.src = "";
   });
 }
+
+// Close modal when clicking outside content
+if (modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalImage.src = "";
+    }
+  });
+}
+
+// Close modal with ESC key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal) {
+    modal.style.display = "none";
+    modalImage.src = "";
+  }
+});
