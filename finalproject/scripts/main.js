@@ -34,41 +34,93 @@ function renderBenefits() {
 }
 renderBenefits();
 
-// ====== Form Interaction (Objects + localStorage) ======
-const nameForm = document.getElementById("nameForm");
+// ====== Form Interaction (LocalStorage apenas, SEM bloquear envio) ======
+const nameForm = document.querySelector("form"); // pega qualquer form da página
 const welcomeMessage = document.getElementById("welcomeMessage");
 
+// Mensagem ao voltar
 if (localStorage.getItem("visitorName") && welcomeMessage) {
   welcomeMessage.textContent = `Welcome back, ${localStorage.getItem("visitorName")}!`;
 }
 
 if (nameForm) {
-  nameForm.addEventListener("submit", function(event) {
-    event.preventDefault();
+  nameForm.addEventListener("submit", function() {
 
-    const nameInput = document.getElementById("visitorName").value;
-    const emailInput = document.getElementById("visitorEmail").value;
-    const messageInput = document.getElementById("message").value;
+    const nameInput = document.getElementById("visitorName")?.value;
+    const emailInput = document.getElementById("visitorEmail")?.value;
+    const messageInput = document.getElementById("message")?.value;
 
-    // Criamos objeto visitor
     const visitor = {
       name: nameInput,
       email: emailInput,
       message: messageInput
     };
 
-    // Salva nome no localStorage
-    localStorage.setItem("visitorName", visitor.name);
-
-    // Mensagem personalizada
-    if (welcomeMessage) {
-      welcomeMessage.textContent = `Hello, ${visitor.name}! Thanks for your message.`;
+    // Salva no localStorage
+    if (visitor.name) {
+      localStorage.setItem("visitorName", visitor.name);
     }
 
-    // Simula envio (log no console)
     console.log("Visitor object:", visitor);
 
-    // Limpa formulário
-    nameForm.reset();
+    // NÃO usamos preventDefault → formulário será enviado normalmente
+  });
+}
+
+// ===== FETCH + DYNAMIC CONTENT =====
+async function loadProjects() {
+  try {
+    const response = await fetch("data/data.json");
+    const data = await response.json();
+
+    const container = document.createElement("section");
+    container.innerHTML = "<h2>Crochet Projects</h2>";
+
+    const cards = document.createElement("div");
+    cards.classList.add("cards");
+
+    cards.innerHTML = data.map(item => `
+      <div class="card">
+        <h3>${item.name}</h3>
+        <p><strong>Difficulty:</strong> ${item.difficulty}</p>
+        <p><strong>Time:</strong> ${item.time}</p>
+        <p><strong>Material:</strong> ${item.material}</p>
+      </div>
+    `).join("");
+
+    container.appendChild(cards);
+
+    const main = document.querySelector("main");
+    if (main) {
+      main.appendChild(container);
+    }
+
+  } catch (error) {
+    console.error("Error loading data:", error);
+  }
+}
+
+loadProjects();
+
+// ===== MODAL =====
+document.addEventListener("click", (e) => {
+  const card = e.target.closest(".card");
+  const modal = document.getElementById("modal");
+  const modalText = document.getElementById("modalText");
+
+  if (card && modal && modalText) {
+    modalText.textContent = card.querySelector("h3").textContent;
+    modal.style.display = "block";
+  }
+});
+
+const closeModal = document.getElementById("closeModal");
+
+if (closeModal) {
+  closeModal.addEventListener("click", () => {
+    const modal = document.getElementById("modal");
+    if (modal) {
+      modal.style.display = "none";
+    }
   });
 }

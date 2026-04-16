@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Granny Square",
+    "difficulty": "Beginner",
+    "time": "30 min",
+    "material": "Cotton yarn"
+  },
+  {
+    "name": "Scarf",
+    "difficulty": "Beginner",
+    "time": "2 hours",
+    "material": "Acrylic yarn"
+  },
+  {
+    "name": "Beanie Hat",
+    "difficulty": "Intermediate",
+    "time": "3 hours",
+    "material": "Wool yarn"
+  },
+  {
+    "name": "Dishcloth",
+    "difficulty": "Beginner",
+    "time": "1 hour",
+    "material": "Cotton yarn"
+  },
+  {
+    "name": "Blanket",
+    "difficulty": "Advanced",
+    "time": "10 hours",
+    "material": "Chunky yarn"
+  },
+  {
+    "name": "Amigurumi Toy",
+    "difficulty": "Intermediate",
+    "time": "5 hours",
+    "material": "Cotton yarn"
+  },
+  {
+    "name": "Headband",
+    "difficulty": "Beginner",
+    "time": "40 min",
+    "material": "Acrylic yarn"
+  },
+  {
+    "name": "Gloves",
+    "difficulty": "Advanced",
+    "time": "4 hours",
+    "material": "Wool yarn"
+  },
+  {
+    "name": "Coaster",
+    "difficulty": "Beginner",
+    "time": "20 min",
+    "material": "Cotton yarn"
+  },
+  {
+    "name": "Bag",
+    "difficulty": "Intermediate",
+    "time": "6 hours",
+    "material": "Cord yarn"
+  },
+  {
+    "name": "Shawl",
+    "difficulty": "Advanced",
+    "time": "8 hours",
+    "material": "Lightweight yarn"
+  },
+  {
+    "name": "Baby Booties",
+    "difficulty": "Intermediate",
+    "time": "2 hours",
+    "material": "Soft yarn"
+  },
+  {
+    "name": "Sweater",
+    "difficulty": "Advanced",
+    "time": "15 hours",
+    "material": "Wool yarn"
+  },
+  {
+    "name": "Keychain",
+    "difficulty": "Beginner",
+    "time": "15 min",
+    "material": "Cotton yarn"
+  },
+  {
+    "name": "Wall Hanging",
+    "difficulty": "Intermediate",
+    "time": "3 hours",
+    "material": "Macrame cord"
+  }
+]
